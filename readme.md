@@ -13,7 +13,7 @@
 ## Entità Departments
 
 - department_id (Primary Key)| TINYINT | UNIQUE |
-- department name | VARCHAR (255)|
+- department name | VARCHAR (255)|NOTNULL
 
 ## Entità DegreeCourses
 
