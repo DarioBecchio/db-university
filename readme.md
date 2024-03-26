@@ -19,29 +19,29 @@
 
 - degree_course_id (Primary Key)|TINYINT |UNIQUE|
 - course_name |VARCHAR (255)|
-- department_id (Foreign key) |
+- department_id (Foreign key)
 - duration_years |TINYINT
 
 ## Entità Courses
 
 - course_id (Primary Key) |TINYINT | UNIQUE
 - course_name |VARCHAR (255) |
-- degree_course_id (Foreign key)|
+- degree_course_id (Foreign key)
 
 ## Entità Teachers
 
 - teacher_id (Primary Key) |SMALLINT | UNIQUE
-- teacher_name |VARCHAR(50)|
+- teacher_name |VARCHAR(50)
 
 ## Entità Course_Teachers
 
 - course_id (Foreign key)
 - teacher_id (Foreign key)
 
-## Entità Exam Session
+## Entità Exam_Session
 
 - session_id (Primary Key) | MEDIUMINT | UNIQUE
-- session_date
+- session_date | DATETIME
 - course_id (Foreign key)
 
 ## Entità Students
@@ -52,7 +52,7 @@
 
 ## Entità Exam_Registration
 
-- registration_id (Primary Key)
+- registration_id (Primary Key)| MEDIUMINT | UNIQUE | AI
 - student_id (Foreign key)
 - session_id (Foreign Key)
-- grade
+- grade | TINYINT
