@@ -68,3 +68,48 @@
 
 - SELECT \* FROM `courses` WHERE `cfu` > '10';
   Showing rows 0 - 24 (479 total, Query took 0.0020 seconds.)
+
+# Selezionare tutti gli studenti che hanno più di 30 anni
+
+SELECT \* FROM `students` WHERE DATEDIFF(NOW(), `date_of_birth`)/365 > 30;
+Showing rows 0 - 24 (3693 total, Query took 0.0028 seconds.)
+
+SELECT \*
+FROM `students`
+WHERE TIMESTAMPDIFF(YEAR, date_of_birth, CURDATE()) > 30;
+Showing rows 0 - 24 (3531 total, Query took 0.0032 seconds.)
+
+SELECT \* FROM `students` WHERE YEAR (NOW()) - YEAR(`date_of_birth`) > 30;
+Showing rows 0 - 24 (3646 total, Query took 0.0012 seconds.)
+
+SELECT \* FROM `students`
+WHERE DATEDIFF(NOW(), `date_of_birth`) /365.25 > 30;
+Showing rows 0 - 24 (3690 total, Query took 0.0011 seconds.)
+
+### Queries 2
+
+- Contare quanti iscritti ci sono stati ogni anno
+
+SELECT COUNT(id), `enrolment_date`
+FROM `students`
+GROUP BY `enrolment_date`;
+
+- Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+
+SELECT COUNT(id), `office_address`
+FROM `teachers`
+GROUP BY `office_address`;
+
+- Calcolare la media dei voti di ogni appello d'esame
+
+SELECT `exam_id`,
+AVG(`vote`) AS `average_vote`
+FROM `exam_student`
+GROUP BY `exam_id`;
+
+- Contare quanti corsi di laurea ci sono per ogni dipartimento
+
+SELECT `department_id`,
+COUNT(`id`) AS `number_of_courses`
+FROM `degrees`
+GROUP BY `department_id`;
